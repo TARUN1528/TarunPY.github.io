@@ -18,6 +18,8 @@ header {
     font-weight: bold;
 }
 
+
+
 .logo span {
     color: #00ffcc;
     font-size: 14px;
@@ -42,7 +44,7 @@ nav ul li a {
     position: relative;
     text-align: center;
     padding: 100px 0;
-    background: url('https://via.placeholder.com/1200x600?text=Hero') no-repeat center/cover;
+    background: url('../images/Hero.jpeg') no-repeat center/cover;
 }
 
 .hero-content h1 {
@@ -60,13 +62,49 @@ nav ul li a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    color: #00ffcc;
-    cursor: pointer;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.about-us-btn:hover {
-    color: #00cc99;
+.about-us-btn .btn-main,
+.about-us-btn .btn-secondary {
+    padding: 8px 16px;
+    color: #00ffcc;
+    background-color: #000000;
+    border: 2px solid #00ffcc;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.about-us-btn .btn-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about-us-btn .btn-main::before {
+    content: "▶";
+    font-size: 12px;
+    color: #00ffcc;
+}
+
+.about-us-btn .btn-secondary {
+    background-color: black;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+}
+
+.about-us-btn .btn-main:hover,
+.about-us-btn .btn-secondary:hover {
+    background-color: #00ffcc;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
 }
 
 .services {
@@ -206,6 +244,24 @@ nav ul li a {
         font-size: 14px;
     }
 
+    .about-us-btn {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-us-btn .btn-main,
+    .about-us-btn .btn-secondary {
+        width: 70%;
+        max-width: 200px;
+        padding: 6px 12px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .about-us-btn .btn-main::before {
+        font-size: 10px;
+    }
+
     .service-cards {
         flex-direction: column;
         align-items: center;
@@ -247,7 +303,8 @@ nav ul li a {
 
 /* Hover Effects for Buttons */
 .view-all:hover,
-.about-us-btn:hover {
+.about-us-btn .btn-main:hover,
+.about-us-btn .btn-secondary:hover {
     opacity: 0.9;
     transform: scale(1.05);
 }
@@ -255,4 +312,13 @@ nav ul li a {
 .card:hover img,
 .stat-item:hover img {
     transform: scale(1.1);
+}
+
+.blink{
+    animation: blink 2s infinite;
+}
+@keyframes blink {
+    0% { opacity: 1.2; }          /* Fully visible */
+    50% { opacity: 0.2; }         /* Fully invisible */
+    100% { opacity: 1.2; }        /* Back to fully visible */
 }
